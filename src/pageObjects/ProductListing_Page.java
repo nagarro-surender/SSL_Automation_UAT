@@ -300,6 +300,23 @@ public static List<WebElement> DefaultAttributeFilterCategoryContainer()throws E
 		return element;
 
 	}
+	
+	public static WebElement cliniqueproduct() throws Exception {
+
+		try {
+			Log.info("Locating Product link on PLP");
+			element = Driver.findElement(By.xpath(".//*[@id='1HashPosition']"));
+			Log.info("Product link found on PLP");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class ProductListing_Page | Method product");
+			Log.error("Product link not found on PLP");
+			throw (e);
+		}
+
+		return element;
+
+	}
 	public static WebElement PrimaryFilterBrandDropDown()throws Exception {
 
 		try {

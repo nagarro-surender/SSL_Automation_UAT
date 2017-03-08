@@ -806,6 +806,27 @@ public class HomePage_Action {
 
 	}
 
+	public static void selectProductCategoryfromMenuClinique(int iTestCaseRow) throws Exception {
+		try {
+
+			String menu = ExcelUtils.getCellData(iTestCaseRow, Constant.productCategory);
+			String submenu = ExcelUtils.getCellData(iTestCaseRow, Constant.productSubCategory);
+			
+			
+			Utils.mouseHoverAction(Home_Page.menuCategory(menu), Home_Page.menuSubCategoryClinique(menu, submenu));
+			Log.info("Product Category selected");
+			Thread.sleep(3000);
+			Home_Page.Clinique().click();
+			Log.info("Clinique Category selected");
+			
+		} catch (Exception e) {
+			Log.error("Exception in Class HomePage_Action | Method selectProductCategoryfromMenu");
+			Log.error("Product category not selected");
+
+			throw (e);
+
+		}
+	}
 	public static void FooterLinkVerification_ReachUs_Public(int iTestCaseRow) throws Exception {
 		try {
 			//Utils.performAssertEquals(Home_Page.Footer_Section.Toll_Free(), "#1-800-419-6648 (TOLL FREE)");

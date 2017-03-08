@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +16,8 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import io.appium.java_client.AppiumDriver;	
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -39,6 +42,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+
 
 
 
@@ -105,6 +110,8 @@ public class Utils {
 		}
 		return Driver;
 	}
+	
+
 
 	public static String getTestCaseName(String sTestCase) throws Exception {
 		String value = sTestCase;
