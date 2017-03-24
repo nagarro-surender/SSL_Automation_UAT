@@ -483,6 +483,30 @@ public class MyAccount_Action {
 			throw (e);
 		}
 	}
+	
+	public static void OrderNumber_Verify_OrderDetailPage_Functionality(int iTestCaseRow) throws Exception {
+		try {
+			Log.info("Verification for Total Numbers order on Order Detail Page functionality");
+			
+			System.out.println(MyAccount_Page.OrderHistory.OrderId().size());
+			if (MyAccount_Page.OrderHistory.OrderId().size() >= 10) {
+				Log.info("Verification check done for Total Numbers order on Order Detail Page ");
+			} else {
+				BaseClass.errorValidation += "Order Less than 10 while total no of order and 12 \n";
+			}
+			Log.info("Verification check done for Total Numbers order on Order Detail Page");
+
+		} catch (Exception e) {
+
+			Log.error("Verification check Failed for Wishlist Alert functionality");
+			Log.error("Exception in Class HomePage_Action | Method OrderNumber_Verify_OrderDetailPage_Functionality");
+			throw e;
+		}
+		if (!BaseClass.errorValidation.isEmpty()) {
+			Log.error("Exception in Class MyAccount_Action | Method OrderNumber_Verify_OrderDetailPage_Functionality");
+			throw new Exception(BaseClass.errorValidation);
+		}
+	}
 
 	public static void verifyOrderDetails_OrderHistoryPage(int iTestCaseRow) throws Exception {
 
@@ -511,6 +535,7 @@ public class MyAccount_Action {
 				BaseClass.errorValidation = BaseClass.errorValidation
 						+ "Verification Failed: Order Status not present \n";
 			}
+			
 
 			if (!BaseClass.errorValidation.equals("")) {
 				throw new Exception(BaseClass.errorValidation);
@@ -521,5 +546,7 @@ public class MyAccount_Action {
 			Log.error("Issue in verifying order details on Order history page");
 			throw (e);
 		}
+		
+		
 	}
 }

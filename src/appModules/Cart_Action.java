@@ -1122,8 +1122,8 @@ public class Cart_Action {
 	public static void Verify_Private_Cart_Page_DeliveryOptions(int iTestCaseRow) throws Exception {
 		Log.info("Verification for checking pin code for delivery options started");
 		try {
-			Utils.scrollingToPageElementByCordinate(1100, 550);
-			Log.info("Mouse pointer moved to pin code field");
+			//Utils.scrollingToPageElementByCordinate(1100, 550);
+			//Log.info("Mouse pointer moved to pin code field");
 			Cart_Page.CheckPinCodeButton().click();
 			Log.info("Check Pin Code link clicked successfully");
 			if (!(Cart_Page.InvalidPinCodeAlert().getText().equals("Invalid Pincode"))) {
@@ -1147,8 +1147,8 @@ public class Cart_Action {
 			throw e;
 		}
 		try {
-			Utils.scrollingToPageElementByCordinate(1100, 550);
-			Log.info("Mouse pointer moved to pin code field");
+			//Utils.scrollingToPageElementByCordinate(1100, 550);
+			//Log.info("Mouse pointer moved to pin code field");
 			Cart_Page.ChangePinCode().click();
 			Log.info("Change Pin Code link clicked successfully");
 			Cart_Page.PinCodeField().clear();
@@ -1168,8 +1168,8 @@ public class Cart_Action {
 			throw e;
 		}
 		try {
-			Utils.scrollingToPageElementByCordinate(1100, 550);
-			Log.info("Mouse pointer moved to pin code field");
+			//Utils.scrollingToPageElementByCordinate(1100, 550);
+			//Log.info("Mouse pointer moved to pin code field");
 			Cart_Page.ChangePinCode().click();
 			Log.info("Change Pin Code link clicked successfully");
 			Cart_Page.PinCodeField().clear();
@@ -1181,7 +1181,7 @@ public class Cart_Action {
 				BaseClass.errorValidation += "Delivery Details does not exist for product. \n";
 			}
 			if (!(Cart_Page.DeliveryDetails().get(0).getText()
-					.equals("Product cannot be delivered in this location"))) {
+					.equals("Product cannot be delivered in this location."))) {
 				BaseClass.errorValidation += "'Product cannot be delivered in this location'- is not displayed. \n";
 			}
 		} catch (Exception e) {

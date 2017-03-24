@@ -174,14 +174,14 @@ public class FCC_Action {
 		try {
 			//Utils.scrollingToPageElementByelement(FCC_Page.FCC_Form.FCCForm_DateOfBirth());
 			Log.info("Filling the FCC form as per the user details for new user");
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			//Utils.verifyElement(FCC_Page.FCC_Form.FCCForm_DateOfBirth());
 			//Thread.sleep(5000);
 			FCC_Page.FCC_Form.FCCForm_Title().selectByVisibleText(ExcelUtils.getCellData(iTestCaseRow, Constant.title));
 			Log.info("Title is selected");
 			//Thread.sleep(5000);
 			FCC_Page.FCC_Form.FCCForm_DateOfBirth().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.DOB));
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			Log.info("Dateofbirth is selected");
 			FCC_Page.FCC_Form.FCCForm_HomeSTDCode().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.homeSTD));
 			Log.info("homestd is selected");

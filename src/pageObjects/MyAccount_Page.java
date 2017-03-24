@@ -1062,6 +1062,7 @@ public class MyAccount_Page extends BaseClass {
 			try {
 				Log.info("Locating RecentOrdersTab element");
 				element = Driver.findElement(By.xpath("//a[text()='Recent Orders']"));
+				
 
 				Log.info("Recent Orders tab is found on the Orders Page");
 
@@ -1075,6 +1076,25 @@ public class MyAccount_Page extends BaseClass {
 
 		}
 		
+		
+		public static WebElement OrderHistoryTab() throws Exception {
+
+			try {
+				Log.info("Locating Order History Tab element");
+				element = Driver.findElement(By.xpath("//a[text()='Order History']"));
+				
+
+				Log.info("Order History Tab is found on the Orders Page");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class MyAccount_Page | Method RecentOrdersTab");
+				Log.error("Recent Orders tab is not found on the Orders Page");
+				throw e;
+			}
+
+			return element;
+
+		}
 		public static WebElement OldOrdersTab() throws Exception {
 
 			try {
@@ -1086,6 +1106,78 @@ public class MyAccount_Page extends BaseClass {
 			} catch (Exception e) {
 				Log.error("Exception in Class MyAccount_Page | Method OldOrdersTab");
 				Log.error("Old Orders tab is not found on the Orders Page");
+				throw e;
+			}
+
+			return element;
+
+		}
+		
+		public static WebElement ReturnExchangeOrdersTab() throws Exception {
+
+			try {
+				Log.info("Locating Return/ExchangeTab element");
+				element = Driver.findElement(By.xpath("//a[text()='Return/Exchange Orders']"));
+
+				Log.info("Return/Exchange Tab is found on the Orders Page");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class MyAccount_Page | Method OldOrdersTab");
+				Log.error("Return/Exchange Tab is not found on the Orders Page");
+				throw e;
+			}
+
+			return element;
+
+		}
+		
+		public static WebElement ViewMoreButton() throws Exception {
+
+			try {
+				Log.info("Locating VIEWMORE button element");
+				element = Driver.findElement(By.xpath(".//*[@id='loadmoreorders']"));
+
+				Log.info("VIEWMORE button is found on the Orders Page");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class MyAccount_Page | Method ViewMoreButton");
+				Log.error("VIEWMORE button is not found on the Orders Page");
+				throw e;
+			}
+
+			return element;
+
+		}
+		
+		public static WebElement WriteAProductReviewButton() throws Exception {
+
+			try {
+				Log.info("Locating WRITE A PRODUCTRE VIEW button element");
+				element = Driver.findElement(By.xpath("//*[@href='#write_review']"));
+
+				Log.info("WRITE A PRODUCTRE VIEW button is found on the Orders Page");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class MyAccount_Page | Method WriteAProductReviewButton");
+				Log.error("WRITE A PRODUCTRE VIEW button is not found on the Orders Page");
+				throw e;
+			}
+
+			return element;
+
+		}
+		
+		public static WebElement ReturnExchangeButton() throws Exception {
+
+			try {
+				Log.info("Locating RETURN AND EXCHANGE button element");
+				element = Driver.findElement(By.xpath(".//*[@id='initiateReturn']"));
+
+				Log.info("RETURN AND EXCHANGE button is found on the Orders Page");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class MyAccount_Page | Method ReturnExchangeButton");
+				Log.error("RETURN AND EXCHANGE button is not found on the Orders Page");
 				throw e;
 			}
 

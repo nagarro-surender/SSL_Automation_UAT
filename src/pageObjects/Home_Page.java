@@ -1162,6 +1162,39 @@ public class Home_Page extends BaseClass {
 
 	}
 
+	public static WebElement menuSubCategoryFilter(String categoryTitle, String subCategoryTitle) throws Exception {
+		try {
+			Log.info("Locating menuSubCategory element");
+			element = Driver.findElement(By.xpath("//a[@title='" + categoryTitle
+					+ "']/following-sibling::div//a[contains(@href, '/men-clothing/c-A1010')]"));
+			
+			Log.info("Sub Menu Category is found on Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method menuSubCategory");
+			Log.error("Sub Menu Category is not found on Home Page");
+			throw e;
+		}
+
+		return element;
+	}
+	
+	public static WebElement menuSubCategoryFilter1(String categoryTitle, String subCategoryTitle) throws Exception {
+		try {
+			Log.info("Locating menuSubCategory element");
+			element = Driver.findElement(By.xpath("//a[@title='" + categoryTitle
+					+ "']/following-sibling::div//a[contains(@href, '/women-westernwear/c-A2060')]"));
+			
+			Log.info("Sub Menu Category is found on Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method menuSubCategory");
+			Log.error("Sub Menu Category is not found on Home Page");
+			throw e;
+		}
+
+		return element;
+	}
 	public static WebElement NewsLetterButton() throws Exception {
 		try {
 			Log.info("Locating NewsLetterButton element");

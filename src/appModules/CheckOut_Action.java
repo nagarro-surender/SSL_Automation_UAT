@@ -51,6 +51,7 @@ public class CheckOut_Action {
 
 		try {
 			if (Checkout_Page.DeliveryAddress.DeliveryAddressNew().getAttribute("style").contains("none")) {
+				Thread.sleep(2000);
 				Checkout_Page.DeliveryAddress.AddNewAddressBtn().click();
 				Log.info("Add new address button is clicked successfully");
 			}

@@ -96,13 +96,15 @@ public class SS_FCC_Private_Verify_AddToBagFCC_ViaFooter {
 			
 			FCC_Action.FCC_Verify_AddToBag_FCC_ViaFooterLink(iTestCaseRow);
 			Log.info("FCC added to cart successfully");
+			
+			
 
-			MiniCart_Page.MiniCartProductDetails.MiniCartViewBag().click();
+			MiniCart_Page.MiniCartProductDetails.MiniCartCheckOutButton().click();
 			Log.info("View bag button on mini cart clicked successfully");
 
-			Utils.verifyElement(Cart_Page.CheckoutButton());
-			Cart_Page.CheckoutButton().sendKeys(Keys.ENTER);
-			Log.info("Checkout button on Cart Page clicked successfully");
+			//Utils.verifyElement(Cart_Page.CheckoutButton());
+			//Cart_Page.CheckoutButton().sendKeys(Keys.ENTER);
+			//Log.info("Checkout button on Cart Page clicked successfully");
 
 			//Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
 			//Log.info("User successfully reached to Checkout page");

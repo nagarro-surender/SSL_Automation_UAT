@@ -864,7 +864,22 @@ public class HomePage_Action {
 
 		}
 	}
-		
+	
+	public static void selectProductCategoryfromMenuFilter(int iTestCaseRow) throws Exception {
+		try {
+
+			String menu = ExcelUtils.getCellData(iTestCaseRow, Constant.productCategory);
+			String submenu = ExcelUtils.getCellData(iTestCaseRow, Constant.productSubCategory);
+			Utils.mouseHoverAction(Home_Page.menuCategory(menu), Home_Page.menuSubCategoryFilter1(menu, submenu));
+			Log.info("Product Category selected");
+		} catch (Exception e) {
+			Log.error("Exception in Class HomePage_Action | Method selectProductCategoryfromMenu");
+			Log.error("Product category not selected");
+
+			throw (e);
+
+		}
+	}
 		public static void selectProductCategoryMainfromMenu(int iTestCaseRow) throws Exception {
 			try {
 

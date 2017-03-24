@@ -98,10 +98,10 @@ public class SS_FCC_Private_Verify_AddToBagFCC_ViaMyAccountsPage {
 		
 		Thread.sleep(5000);
 
-		MiniCart_Page.MiniCartProductDetails.MiniCartViewBag().click();
-		Log.info("View bag button on mini cart clicked successfully");
+		MiniCart_Page.MiniCartProductDetails.MiniCartCheckOutButton().click();
+		//Log.info("View bag button on mini cart clicked successfully");
 
-		Cart_Page.CheckoutButton().click();
+		//Cart_Page.CheckoutButton().click();
 		Log.info("Checkout button on Cart Page clicked successfully");
 
 		//Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
