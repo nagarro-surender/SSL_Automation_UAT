@@ -528,8 +528,8 @@ public class Home_Page extends BaseClass {
 
 			try {
 				Log.info("Locating First_Citizen element");
-				//element = Driver.findElement(By.xpath("//a[contains(@title, 'FIRST CITIZEN')]"));
-				element = Driver.findElement(By.xpath("html/body/main/footer/div[3]/div/div/div/div/ul/li[4]/div/ul/li[1]/a"));
+				element = Driver.findElement(By.xpath("//a[contains(@title, 'FIRST CITIZEN')]"));
+				//element = Driver.findElement(By.xpath("html/body/main/footer/div[3]/div/div/div/div/ul/li[4]/div/ul/li[1]/a"));
 
 				Log.info("First Citizen Link found under Footer Section");
 
@@ -548,7 +548,7 @@ public class Home_Page extends BaseClass {
 
 			try {
 				Log.info("Locating Instant_Gifting element");
-				element = Driver.findElement(By.xpath("//a[contains(@title, 'INSTANT GIFTING')]"));
+				element = Driver.findElement(By.xpath("//a[contains(@title, 'Instant Gifting')]"));
 
 				Log.info("Instant Gifting Link found under Footer Section");
 
@@ -1065,7 +1065,7 @@ public class Home_Page extends BaseClass {
 
 		try {
 			Log.info("Locating Clinique Brand element");
-			element = Driver.findElement(By.xpath("//a[contains(@href,'clinique')]"));
+			element = Driver.findElement(By.xpath("//a[contains(@href,'/brand/clinique')]"));
 
 			Log.info("Clinique Brand element is found on the Home Page");
 

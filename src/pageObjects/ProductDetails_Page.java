@@ -718,7 +718,7 @@ public class ProductDetails_Page extends BaseClass {
 
 			try {
 				Log.info("Locating WriteReview element");
-				element = Driver.findElement(By.xpath("//div[@class='product_description']//a[@class='scroll']"));
+				element = Driver.findElement(By.xpath("//div[@class='product_description']//*[@class='sm_star_active']"));
 
 				Log.info("Write review link is present on the page");
 

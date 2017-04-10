@@ -210,6 +210,21 @@ public class Utils {
 
 	}
 	
+	public static void SelectDropdownUpdatedReason(WebElement mainElement) throws Exception {
+		try {
+			Log.info("Selecting the element from drop down");
+			
+			Select rob = new Select(mainElement);
+			rob.selectByIndex(4);
+			
+		} catch (Exception e) {
+			Log.error("Exception in Class Utils | Method SelectDropdownUpdatedReason");
+			Log.error("Issue in Selecting the element from drop down");
+			throw e;
+		}
+
+	}
+	
 	public static void mouseHoverAction(WebElement mainElement, WebElement subElement) throws Exception {
 		try {
 			Log.info("Hovering mouse on the main element");
@@ -549,6 +564,9 @@ public class Utils {
 		}
 
 	}
+	
+
+
 
 	public static boolean CheckEnability(WebElement element)throws Exception {
 		try {

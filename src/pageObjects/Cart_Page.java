@@ -767,6 +767,25 @@ public class Cart_Page extends BaseClass {
 		return element;
 
 	}
+	
+	public static WebElement CheckOutButtonOnMiniCart() throws Exception {
+
+		try {
+			Log.info("Locating checkout button on the minicart page");
+			
+			element = Driver.findElement(
+					By.xpath("//a[contains(@href,'checkout')]"));
+			Log.info("checkout button exist on the Checkout page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Cart_Page | Method CheckOutButtonOnMiniCart");
+			Log.error("checkout button does not exist on the Checkout page");
+			throw e;
+		}
+
+		return element;
+
+	}
 
 	public static WebElement RemoveCouponCode() throws Exception {
 

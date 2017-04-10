@@ -1,9 +1,7 @@
 package testCases;
 
 import org.apache.log4j.xml.DOMConfigurator;
-
 import org.openqa.selenium.WebDriver;
-
 import org.testng.annotations.AfterMethod;
 
 //import org.testng.annotations.AfterSuite;
@@ -13,7 +11,6 @@ import org.testng.annotations.Test;
 import pageObjects.BaseClass;
 import pageObjects.Cart_Page;
 import pageObjects.Checkout_Page;
-
 import pageObjects.MiniCart_Page;
 import pageObjects.ProductDetails_Page;
 import pageObjects.ProductListing_Page;
@@ -92,15 +89,14 @@ public class SS_CheckOut_AlreadyLoginUser_OrderUsingNetBanking {
 			Utils.verifyElement(MiniCart_Page.MiniCartWindow());
 			Log.info("Product is added to the cart and mini cart is displayed");
 
-			MiniCart_Page.MiniCartProductDetails.MiniCartViewBag().click();
-			Log.info("View bag button is clicked on Mini cart window");
-			Utils.verifyElement(Cart_Page.CheckoutButton());
-			Cart_Page.CheckoutButton().click();
+			//MiniCart_Page.MiniCartProductDetails.MiniCartViewBag().click();
+			//Log.info("View bag button is clicked on Mini cart window");
+	        Utils.verifyElement(Cart_Page.CheckOutButtonOnMiniCart());
+			
+			Cart_Page.CheckOutButtonOnMiniCart().click();
 			Log.info("Checkout button is clicked on cart page");
-			Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
-			Log.info("User successfully reached to Checkout page");
-
-			CheckOut_Action.ProceedwithNewAddress(iTestCaseRow);
+            Thread.sleep(3000);
+			Checkout_Page.Paymentinfo.ProceedToPaymentButton().click();
 			Utils.verifyElement(Checkout_Page.Paymentinfo.PaymentClass());
 			Log.info("Payment information tab is visible");
 			CheckOut_Action.PaymentOption(iTestCaseRow);

@@ -139,18 +139,18 @@ public class HomePage_Action {
 					+ "The Main Slider container is not present on Home Page \n";
 
 		}
-		try {
-			Log.info("Verification for Shipping Container");
-			Utils.verifyElement(Static_Page.ShippingContainer());
-			Log.info("Verification check has been completed for Shipping Container");
-
-		} catch (Exception e) {
-
-			Log.error("Verification check Failed for Shipping Container");
-			BaseClass.errorValidation = BaseClass.errorValidation
-					+ "The Shipping container is not present on Home Page \n";
-
-		}
+//		try {
+//			Log.info("Verification for Shipping Container");
+//			Utils.verifyElement(Static_Page.ShippingContainer());
+//			Log.info("Verification check has been completed for Shipping Container");
+//
+//		} catch (Exception e) {
+//
+//			Log.error("Verification check Failed for Shipping Container");
+//			BaseClass.errorValidation = BaseClass.errorValidation
+//					+ "The Shipping container is not present on Home Page \n";
+//
+//		}
 		try {
 			Log.info("Verification for Style Inspiration Container");
 			Utils.verifyElement(Static_Page.StyleInspirationContainer());
@@ -163,18 +163,18 @@ public class HomePage_Action {
 					+ "The Style Inspiration container is not present on Home Page \n";
 
 		}
-		try {
-			Log.info("Verification for latest from Shoppers Stop Container");
-			Utils.verifyElement(Static_Page.latestContainer());
-			Log.info("Verification check has been completed for latest from Shoppers Stop Container");
-
-		} catch (Exception e) {
-
-			Log.error("Verification check Failed for Latest from Shoppers Stop Container");
-			BaseClass.errorValidation = BaseClass.errorValidation
-					+ "The Latest from Shoppers Stop container is not present on Home Page \n";
-
-		}
+//		try {
+//			Log.info("Verification for latest from Shoppers Stop Container");
+//			Utils.verifyElement(Static_Page.latestContainer());
+//			Log.info("Verification check has been completed for latest from Shoppers Stop Container");
+//
+//		} catch (Exception e) {
+//
+//			Log.error("Verification check Failed for Latest from Shoppers Stop Container");
+//			BaseClass.errorValidation = BaseClass.errorValidation
+//					+ "The Latest from Shoppers Stop container is not present on Home Page \n";
+//
+//		}
 		try {
 			Log.info("Verification for New Arrival Container");
 			Utils.verifyElement(Static_Page.NewArrivalsContainer());
@@ -474,7 +474,7 @@ public class HomePage_Action {
 			Utils.performAssertEquals(Home_Page.headerWishlistMenuHeading(), "Your Saved Items Are Empty");
 
 			System.out.println(Home_Page.headerWishlistMenuText().getText());
-			Utils.performAssertEquals(Home_Page.headerWishlistMenuText(), "Please LOGIN or REGISTER to add a products");
+			Utils.performAssertEquals(Home_Page.headerWishlistMenuText(), "Please LOGIN or REGISTER to add products");
 
 			Log.info("Verification check done for Wishlist Alert functionality");
 
