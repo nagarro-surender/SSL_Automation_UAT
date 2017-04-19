@@ -975,6 +975,7 @@ try {
 			String title = ExcelUtils.getCellData(iTestCaseRow, Constant.title);	
 			MyAccount_Page.OrderHistory.EditQuantityLink().click();
 			Utils.verifyElement(MyAccount_Page.OrderHistory.EditTextBox());
+			MyAccount_Page.OrderHistory.EditTextBox().clear();
 			MyAccount_Page.OrderHistory.EditTextBox().sendKeys(title);
 			
 	
@@ -1078,7 +1079,7 @@ try {
         Home_Page.MyAccount().click();
         
         MyAccount_Page.MyAccount_LeftMenu.Orders().click();
-		       MyAccount_Page.OrderHistory.OrderAction().get(0).sendKeys(Keys.ENTER);
+		       MyAccount_Page.OrderHistory.OrderAction().get(6).sendKeys(Keys.ENTER);
 		       Thread.sleep(2000);
 		       MyAccount_Page.OrderHistory.ReturnExchangeButton().click();
 		       Thread.sleep(3000);
@@ -1363,7 +1364,7 @@ try {
 		String Email = ExcelUtils.getCellData(iTestCaseRow, Constant.emailId);
 		MyAccount_Page.OrderHistory.TrackOrderEmail().sendKeys(Email);
 		Log.info("Email Id is entered successfully");
-		MyAccount_Page.OrderHistory.TrackOrderNo().sendKeys("67949026");
+		MyAccount_Page.OrderHistory.TrackOrderNo().sendKeys("70644029");
 		Log.info("Order Id is entered successfully");
 		MyAccount_Page.OrderHistory.TrackSubmittBtn().click();
 		
@@ -1448,7 +1449,7 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 	String Email = ExcelUtils.getCellData(iTestCaseRow, Constant.emailId);
 	MyAccount_Page.OrderHistory.TrackOrderEmail().sendKeys(Email);
 	Log.info("Email Id is entered successfully");
-	MyAccount_Page.OrderHistory.TrackOrderNo().sendKeys("67949043");
+	MyAccount_Page.OrderHistory.TrackOrderNo().sendKeys("70644027");
 	Log.info("Order Id is entered successfully");
 	MyAccount_Page.OrderHistory.TrackSubmittBtn().click();
 	
@@ -1493,18 +1494,27 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
         try {
 				
 				MyAccount_Page.OrderHistory.NEFTbutton().click();
+				
+				
 				Utils.scrollingToPageElementAdvanced(MyAccount_Page.OrderHistory.NEFTbutton());
 				Thread.sleep(3000);
+				
 				MyAccount_Page.OrderHistory.AccountNumber().clear();
+				MyAccount_Page.OrderHistory.BankName().clear();
+				MyAccount_Page.OrderHistory.AccountName().clear();
+				MyAccount_Page.OrderHistory.IFSCCode().clear();
+				
+				
 				String AccountNo = ExcelUtils.getCellData(iTestCaseRow, Constant.cardNumber);
 				MyAccount_Page.OrderHistory.AccountNumber().sendKeys(AccountNo);
 				Log.info("Account Number is entered successfully");
 
-
+				
 				String Bank = ExcelUtils.getCellData(iTestCaseRow, Constant.bank);
 				MyAccount_Page.OrderHistory.BankName().sendKeys(Bank);
 				Log.info("Bank Name is entered successfully");
-
+                
+				
 				String IFSC = ExcelUtils.getCellData(iTestCaseRow, Constant.CVV);
 				MyAccount_Page.OrderHistory.IFSCCode().sendKeys(IFSC);
 				Log.info("ifsc is entered successfully");
@@ -1516,6 +1526,7 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 						BaseClass.errorValidation += " name field not mandatory on page. \n";
 					}
 				
+					MyAccount_Page.OrderHistory.AccountName().clear();
 					String Name = ExcelUtils.getCellData(iTestCaseRow, Constant.updatedFirstName);
 					MyAccount_Page.OrderHistory.AccountName().sendKeys(Name);
 					Log.info(" Wrong Account Name is entered successfully");
@@ -1541,8 +1552,9 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 					MyAccount_Page.OrderHistory.IFSCCode().clear();
 					MyAccount_Page.OrderHistory.AccountName().clear();
 					
+					
 					String CorrectName = ExcelUtils.getCellData(iTestCaseRow, Constant.firstName);
-					MyAccount_Page.OrderHistory.AccountNumber().sendKeys(CorrectName);
+					MyAccount_Page.OrderHistory.AccountName().sendKeys(CorrectName);
 					Log.info("Correct Name is entered successfully");
 					
 					
@@ -1550,9 +1562,13 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 					MyAccount_Page.OrderHistory.BankName().sendKeys(Bank);
 					Log.info("Bank Name is entered successfully");
 
+					
 					String IFSC = ExcelUtils.getCellData(iTestCaseRow, Constant.CVV);
 					MyAccount_Page.OrderHistory.IFSCCode().sendKeys(IFSC);
 					Log.info("ifsc is entered successfully");
+					
+				
+			
 
 					MyAccount_Page.OrderHistory.SaveSubmittbutton().click();
 					Log.info("Submitt button clicked successfully");
@@ -1568,6 +1584,7 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 						Log.error(e.getMessage());
 						throw e;
 					}
+				Thread.sleep(5000);
 				
 				try {
 					
@@ -1576,14 +1593,17 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 					MyAccount_Page.OrderHistory.IFSCCode().clear();
 					MyAccount_Page.OrderHistory.AccountName().clear();
 					
+					MyAccount_Page.OrderHistory.AccountName().clear();
 					String CorrectName = ExcelUtils.getCellData(iTestCaseRow, Constant.firstName);
-					MyAccount_Page.OrderHistory.AccountNumber().sendKeys(CorrectName);
+					MyAccount_Page.OrderHistory.AccountName().sendKeys(CorrectName);
 					Log.info("Correct Name is entered successfully");
 					
+					MyAccount_Page.OrderHistory.AccountNumber().clear();
 					String AccountNo = ExcelUtils.getCellData(iTestCaseRow, Constant.cardNumber);
 					MyAccount_Page.OrderHistory.AccountNumber().sendKeys(AccountNo);
 					Log.info("Account Number is entered successfully");
 					
+					MyAccount_Page.OrderHistory.IFSCCode().clear();
                     String IFSC = ExcelUtils.getCellData(iTestCaseRow, Constant.CVV);
 					MyAccount_Page.OrderHistory.IFSCCode().sendKeys(IFSC);
 					Log.info("ifsc is entered successfully");
@@ -1594,7 +1614,7 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 						if (!(MyAccount_Page.OrderHistory.BankNameMsg().getText().equals("Please enter a valid bank name."))) {
 							BaseClass.errorValidation += " Bank Name field not mandatory on page. \n";
 						}
-						
+						MyAccount_Page.OrderHistory.BankName().clear();
 						String IncorrectBankName = ExcelUtils.getCellData(iTestCaseRow, Constant.updatedLastName);
 						MyAccount_Page.OrderHistory.BankName().sendKeys(IncorrectBankName);
 						Log.info(" Wrong Bank Name is entered successfully");
@@ -1610,6 +1630,7 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 						Log.error(e.getMessage());
 						throw e;
 					}
+				Thread.sleep(5000);
 				
 				try {
 					
@@ -1618,14 +1639,17 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 					MyAccount_Page.OrderHistory.IFSCCode().clear();
 					MyAccount_Page.OrderHistory.AccountName().clear();
 					
+					MyAccount_Page.OrderHistory.AccountName().clear();
 					String CorrectName = ExcelUtils.getCellData(iTestCaseRow, Constant.firstName);
-					MyAccount_Page.OrderHistory.AccountNumber().sendKeys(CorrectName);
+					MyAccount_Page.OrderHistory.AccountName().sendKeys(CorrectName);
 					Log.info("Correct Name is entered successfully");
 					
+					MyAccount_Page.OrderHistory.AccountNumber().clear();
 					String AccountNo = ExcelUtils.getCellData(iTestCaseRow, Constant.cardNumber);
 					MyAccount_Page.OrderHistory.AccountNumber().sendKeys(AccountNo);
 					Log.info("Account Number is entered successfully");
 					
+					MyAccount_Page.OrderHistory.BankName().clear();
 					String Bank = ExcelUtils.getCellData(iTestCaseRow, Constant.bank);
 					MyAccount_Page.OrderHistory.BankName().sendKeys(Bank);
 					Log.info("Bank Name is entered successfully");
@@ -1639,6 +1663,7 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 							BaseClass.errorValidation += " Bank Name field not mandatory on page. \n";
 						}
 						
+						MyAccount_Page.OrderHistory.IFSCCode().clear();
 						String IncorrectIFSCCode = ExcelUtils.getCellData(iTestCaseRow, Constant.updatedMobile);
 						MyAccount_Page.OrderHistory.IFSCCode().sendKeys(IncorrectIFSCCode);
 						Log.info(" Wrong IFSC code is entered successfully");
@@ -1653,6 +1678,7 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 						Log.error(e.getMessage());
 						throw e;
 					}
+				Thread.sleep(5000);
 				
         try {
 					Thread.sleep(3000);
@@ -1661,13 +1687,16 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 					MyAccount_Page.OrderHistory.IFSCCode().clear();
 					MyAccount_Page.OrderHistory.AccountName().clear();
 					
+					
 					String CorrectName = ExcelUtils.getCellData(iTestCaseRow, Constant.firstName);
-					MyAccount_Page.OrderHistory.AccountNumber().sendKeys(CorrectName);
+					MyAccount_Page.OrderHistory.AccountName().sendKeys(CorrectName);
 					Log.info("Correct Name is entered successfully");
+					
 					
 					String AccountNo = ExcelUtils.getCellData(iTestCaseRow, Constant.cardNumber);
 					MyAccount_Page.OrderHistory.AccountNumber().sendKeys(AccountNo);
 					Log.info("Account Number is entered successfully");
+					
 					
 					String Bank = ExcelUtils.getCellData(iTestCaseRow, Constant.bank);
 					MyAccount_Page.OrderHistory.BankName().sendKeys(Bank);
@@ -1682,6 +1711,8 @@ public static void MyAccount_Guestuser_Track_Order_returned_Details(int iTestCas
 					MyAccount_Page.OrderHistory.SaveCanceltbutton().click();
 					Log.info("Cancel button clicked successfully");
 					Utils.verifyElement(MyAccount_Page.OrderHistory.ViewMoreButton());
+					
+					Thread.sleep(5000);
 					
 						
 						

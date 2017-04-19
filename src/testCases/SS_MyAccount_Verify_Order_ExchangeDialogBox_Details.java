@@ -71,7 +71,6 @@ public class SS_MyAccount_Verify_Order_ExchangeDialogBox_Details {
 			MyAccount_Page.OrderHistory.OrderAction().get(0).sendKeys(Keys.ENTER);
 			Log.info("View Order button is clicked");
 			MyAccount_Page.OrderHistory.ReturnExchangeButton().click();
-			Thread.sleep(3000);
 			MyAccount_Page.OrderHistory.ReturnExchangeWindowExchangeButton().click();
 			Thread.sleep(3000);
 			MyAccount_Action.Verify_OrderDetailPage_ExchangeWindow_Functionality(iTestCaseRow);
