@@ -623,8 +623,8 @@ public class Home_Page extends BaseClass {
 		public static WebElement Facebook_Link() throws Exception {
 			try {
 				Log.info("Locating Facebook_Link element");
-				element = Driver.findElement(By.xpath("//a[@class='facebook']"));
-
+				//element = Driver.findElement(By.xpath("//a[@class='facebook']"));
+				element = Driver.findElement(By.xpath("//*[contains(@href,'facebook')]"));
 				Log.info("Facebook Link found under Footer Section");
 
 			} catch (Exception e) {
@@ -640,8 +640,8 @@ public class Home_Page extends BaseClass {
 		public static WebElement Twitter_Link() throws Exception {
 			try {
 				Log.info("Locating Twitter_Link element");
-				element = Driver.findElement(By.xpath("//a[@class='twitter']"));
-
+				//element = Driver.findElement(By.xpath("//a[@class='twitter']"));
+				element = Driver.findElement(By.xpath("//*[contains(@href,'twitter')]"));
 				Log.info("Twitter Link found under Footer Section");
 
 			} catch (Exception e) {
@@ -657,7 +657,8 @@ public class Home_Page extends BaseClass {
 		public static WebElement Pinterest_Link() throws Exception {
 			try {
 				Log.info("Locating Pinterest_Link element");
-				element = Driver.findElement(By.xpath("//a[@class='pinterest']"));
+				//element = Driver.findElement(By.xpath("//a[@class='pinterest']"));
+				element = Driver.findElement(By.xpath("//*[contains(@href,'pinterest')]"));
 
 				Log.info("Pinterest Link found under Footer Section");
 
@@ -674,13 +675,98 @@ public class Home_Page extends BaseClass {
 		public static WebElement GooglePlus_Link() throws Exception {
 			try {
 				Log.info("Locating GooglePlus_Link element");
-				element = Driver.findElement(By.xpath("//a[@class='googleplus']"));
-
+				//element = Driver.findElement(By.xpath("//a[@class='googleplus']"));
+				element = Driver.findElement(By.xpath("//*[contains(@href,'plus.google')]"));
 				Log.info("GooglePlus Link found under Footer Section");
 
 			} catch (Exception e) {
 				Log.error("Exception in Class Home_Page | Method GooglePlus_Link");
 				Log.error("GooglePlus link is not found under  Footer Section");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		public static WebElement AppStoreLink() throws Exception {
+			try {
+				Log.info("Locating GooglePlus_Link element");
+				element = Driver.findElement(By.xpath("//*[@title='App Store Icon']"));
+
+				Log.info("App store Link Link found under Footer Section");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method AppStoreLink");
+				Log.error("App store Link Link is not found under  Footer Section");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		public static WebElement GooglePlayLink() throws Exception {
+			try {
+				Log.info("Locating GooglePlus_Link element");
+				element = Driver.findElement(By.xpath("//*[@title='Google Play Icon']"));
+
+				Log.info("Google Play Link found under Footer Section");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method GooglePlayLink");
+				Log.error("GooglePlay link is not found under  Footer Section");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		public static WebElement ProductAuthenticIcon() throws Exception {
+			try {
+				Log.info("Locating Product Authentic icon element");
+				element = Driver.findElement(By.xpath("//*[@title='Authentic Products']"));
+
+				Log.info("ProductAuthenticIcon found under Footer Section");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method ProductAuthenticIcon");
+				Log.error("Product Authentic icon not found under  Footer Section");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		public static WebElement FreeDeliveryicon() throws Exception {
+			try {
+				Log.info("Locating Free delivery Link element");
+				element = Driver.findElement(By.xpath("//*[@title='Free Delivery']"));
+
+				Log.info("FreeDeliveryicon found under Footer Section");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method FreeDeliveryicon");
+				Log.error("Free Delivery link is not found under  Footer Section");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		public static WebElement EasyExchangeReturnIcon() throws Exception {
+			try {
+				Log.info("Locating GooglePlus_Link element");
+				element = Driver.findElement(By.xpath("//*[@title='Exchange Return']"));
+
+				Log.info("Exchange Return Link found under Footer Section");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method EasyExchangeReturnIcon");
+				Log.error("Exchange Return link is not found under  Footer Section");
 
 				throw (e);
 
@@ -803,7 +889,7 @@ public class Home_Page extends BaseClass {
 
 		try {
 			Log.info("Locating headerTrackOrder element");
-			element = Driver.findElement(By.xpath("//a[@class='order' and contains(@href,'trackorders')]"));
+			element = Driver.findElement(By.xpath("//a[@class='trackorder' and contains(@href,'trackorders')]"));
 
 			Log.info("Track Order icon is found on the Header on Home Page");
 
@@ -964,6 +1050,55 @@ public class Home_Page extends BaseClass {
 
 	}
 
+	public static WebElement MiniCartItemCount() throws Exception {
+		try {
+			Log.info("Locating headerWishlistMenuText element");
+			element = Driver.findElement(By.xpath("//span[@class='qtyHeaderMinicart']"));
+
+			Log.info("MiniCart Item count is found on Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method MiniCartItemCount");
+			Log.error("MiniCart Item count is not found on the Home Page");
+			throw e;
+		}
+
+		return element;
+
+	}
+	
+	public static WebElement MiniCartItemRemove() throws Exception {
+		try {
+			Log.info("Locating MiniCartItem element");
+			element = Driver.findElement(By.xpath(".//*[@id='removeFromCartID'][1]"));
+
+			Log.info("MiniCartItem is found on Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method MiniCartItemRemove");
+			Log.error("MiniCartItem is not found on the Home Page");
+			throw e;
+		}
+
+		return element;
+
+	}
+	
+	public static List<WebElement> MiniCartItems()throws Exception {
+		try {
+			Log.info("Locating MiniCartItems elements");
+			webElements = Driver.findElements(By.xpath(".//*[@id='removeFromCartID']"));
+
+			Log.info("MiniCartItems is found on Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method MiniCartItems");
+			Log.error("MiniCartItems is not found on the Home Page");
+			throw e;
+		}
+
+		return webElements;
+	}
 	public static WebElement headerWishlistMenuHeading() throws Exception {
 		try {
 			Log.info("Locating headerWishlistMenuHeading element");
@@ -1179,6 +1314,24 @@ public class Home_Page extends BaseClass {
 		return element;
 	}
 	
+	public static WebElement StartSoemthingnew() throws Exception {
+		try {
+			Log.info("Locating StartSoemthingnew element");
+			element = Driver.findElement(By.xpath("html/body/main/div[11]/footer/div[1]/p"));
+
+			Log.info("NewsLetter Subscription alert is found on Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Static_Page | Method StartSoemthingnew");
+			Log.error("StartSoemthingnew is not found on the Home Page");
+			throw e;
+		}
+
+		return element;
+	}
+
+
+	
 	public static WebElement menuSubCategoryFilter1(String categoryTitle, String subCategoryTitle) throws Exception {
 		try {
 			Log.info("Locating menuSubCategory element");
@@ -1216,7 +1369,7 @@ public class Home_Page extends BaseClass {
 	public static WebElement NewsLetterAlert() throws Exception {
 		try {
 			Log.info("Locating NewsLetterAlert element");
-			element = Driver.findElement(By.xpath(".//*[@id='newsletterSubmitForm']/div[2]/span"));
+			element = Driver.findElement(By.xpath(".//*[@id='newsletterSubmitForm']/div[1]/span"));
 
 			Log.info("NewsLetter Subscription alert is found on Home Page");
 
@@ -1229,4 +1382,8 @@ public class Home_Page extends BaseClass {
 		return element;
 	}
 
+	
+	
 }
+
+

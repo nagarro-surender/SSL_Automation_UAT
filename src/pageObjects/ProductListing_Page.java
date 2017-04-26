@@ -23,7 +23,7 @@ public class ProductListing_Page extends BaseClass {
 
 		try {
 			Log.info("Locating Product link on PLP");
-			element = Driver.findElement(By.xpath(".//*[@id='1HashPosition']/a/picture/div/div/div/ul/li/a/img"));
+			element = Driver.findElement(By.xpath(".//*[@id='1HashPosition']"));
 			Log.info("Product link found on PLP");
 
 		} catch (Exception e) {
@@ -36,6 +36,7 @@ public class ProductListing_Page extends BaseClass {
 
 	}
 	
+
 	public static WebElement checkout_product() throws Exception {
 
 		try {

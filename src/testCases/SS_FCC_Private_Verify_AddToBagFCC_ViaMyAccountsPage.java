@@ -17,6 +17,7 @@ import pageObjects.Home_Page;
 import pageObjects.MiniCart_Page;
 import appModules.CheckOut_Action;
 import appModules.FCC_Action;
+import appModules.HomePage_Action;
 import appModules.Login_App;
 import utility.Constant;
 import utility.ExcelUtils;
@@ -89,6 +90,7 @@ public class SS_FCC_Private_Verify_AddToBagFCC_ViaMyAccountsPage {
 		Login_App.execute(iTestCaseRow);
 		Log.info("Log in successfull for Registered User");		
 		
+		HomePage_Action.removeAllItemFromCart();
 		Utils.mouseHover(Home_Page.LoginRegister());
 		Home_Page.MyAccount().click();
 		Log.info("My Shoppers Stop link clicked on Home Page");	
@@ -98,14 +100,17 @@ public class SS_FCC_Private_Verify_AddToBagFCC_ViaMyAccountsPage {
 		
 		Thread.sleep(5000);
 
-		MiniCart_Page.MiniCartProductDetails.MiniCartCheckOutButton().click();
-		//Log.info("View bag button on mini cart clicked successfully");
-
-		//Cart_Page.CheckoutButton().click();
+//		MiniCart_Page.MiniCartProductDetails.MiniCartViewBag().click();
+//		Log.info("View bag button on mini cart clicked successfully");
+//
+//		Cart_Page.CheckoutButton().click();
+//		Log.info("Checkout button on Cart Page clicked successfully");
+		
+		Cart_Page.CheckoutButtonOnMiniCartFCC().click();
 		Log.info("Checkout button on Cart Page clicked successfully");
 
-		//Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
-		//Log.info("User successfully reached to Checkout page");
+		Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
+		Log.info("User successfully reached to Checkout page");
 
 		CheckOut_Action.ProceedwithNewAddress(iTestCaseRow);
 		Utils.verifyElement(Checkout_Page.Paymentinfo.PaymentClass());
@@ -113,12 +118,12 @@ public class SS_FCC_Private_Verify_AddToBagFCC_ViaMyAccountsPage {
 		
         
 		//CheckOut_Action.PaymentOption(iTestCaseRow);
-		
-		Home_Page.headerSoppersStopLogocheckout().click();
-		Thread.sleep(2000);
-		Home_Page.headerMiniCartIcon().click();
-		Thread.sleep(2000);
-        Home_Page.headerMiniCartIconclose().click();
+//		
+//		Home_Page.headerSoppersStopLogocheckout().click();
+//		Thread.sleep(2000);
+//		Home_Page.headerMiniCartIcon().click();
+//		Thread.sleep(2000);
+//        Home_Page.headerMiniCartIconclose().click();
 		if(BaseClass.bResult==true){
 			Log.info("Verification for buying FCC for registere user from My accounts page successfull");
 			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.result);
@@ -135,6 +140,7 @@ public class SS_FCC_Private_Verify_AddToBagFCC_ViaMyAccountsPage {
 			throw (e);
 		}
 	}
+
 	@AfterMethod
 	public void afterMethod() {
 

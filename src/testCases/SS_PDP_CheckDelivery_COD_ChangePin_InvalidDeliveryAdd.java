@@ -62,8 +62,8 @@ public class SS_PDP_CheckDelivery_COD_ChangePin_InvalidDeliveryAdd {
 			HomePage_Action.selectProductCategoryfromMenu(iTestCaseRow);
 			ProductListing_Page.product().click();
 			Log.info("Product icon is clicked");
-			ProductDetails_Page.Product.Product_CODBtn().click();
-			Log.info("Check for COD button is clicked");
+			//ProductDetails_Page.Product.Product_CODBtn().click();
+			//Log.info("Check for COD button is clicked");
 			ProductDetails_Page.Product.PinCode().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.postCode));
 			Log.info("Pin is entered into the text field");
 			ProductDetails_Page.Product.PinCodeCheckBtn().click();
@@ -78,9 +78,9 @@ public class SS_PDP_CheckDelivery_COD_ChangePin_InvalidDeliveryAdd {
 			Thread.sleep(2000);
 			ProductDetails_Page.Product.ChangePinBtn().click();
 			Log.info("Change pin button is clicked");
-			ProductDetails_Page.Product.PinCodeChange().clear();
-			Log.info("Previous pin is cleared from the field");
-			ProductDetails_Page.Product.PinCodeChange()
+			//ProductDetails_Page.Product.PinCodeChange().clear();
+			//Log.info("Previous pin is cleared from the field");
+			ProductDetails_Page.Product.PinCode()
 					.sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.alternativePostCode));
 			Log.info("Pin is entered into the text field");
 			ProductDetails_Page.Product.PinCodeCheckBtn().click();

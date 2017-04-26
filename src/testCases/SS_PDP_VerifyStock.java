@@ -1,37 +1,41 @@
 package testCases;
 
 import org.apache.log4j.xml.DOMConfigurator;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import pageObjects.BaseClass;
 import pageObjects.ProductDetails_Page;
 import pageObjects.ProductListing_Page;
 import appModules.HomePage_Action;
+import appModules.PDP_Action;
+import appModules.PLP_Action;
 import utility.Constant;
 import utility.ExcelUtils;
 import utility.Log;
 import utility.Utils;
+
 /**
  * 
- * <h2 style="text-align:center;">SS_PDP_CheckDelivery_COD</h2>
- * <p style="font-size:19px"><b>Description -</b>This Test Case verifies COD check functionality</p>
+ * <h2 style="text-align:center;">SS_PDP_VerifyDetails</h2>
+ * <p style="font-size:19px"><b>Description -</b>This Test Case verifies product details on PDP</p>
  * <TABLE width="100%" border="1">
  * <caption style="font-size:17px">List of columns used from excel file</caption>
  * <tr><th>Parameters</th><th>Description</th></tr>
  * <tr><td>browser</td><td>Browser name in which test execution starts</td></tr>
  * <tr><td>productCategory</td><td>Product Main Category(e.g. MEN, WOMEN etc)</td></tr>
  * <tr><td>productSubCategory</td><td>Product Sub Category(e.g. T-shirt, Watches etc)</td></tr> 
- * <tr><td>postCode</td><td>Valid Pin code</td></tr>
  * </table>
  * <br>
  * <br>
  * 
- */ 
+ */
 
 
-public class SS_PDP_CheckDelivery_COD {
+public class SS_PDP_VerifyStock {
 
 	public WebDriver Driver;
 	private String sTestCaseName;
@@ -55,27 +59,17 @@ public class SS_PDP_CheckDelivery_COD {
 	@Test
 	public void main() throws Exception {
 		try {
-
 			HomePage_Action.selectProductCategoryfromMenu(iTestCaseRow);
+			Log.info("Product Listing Page opened");
 			ProductListing_Page.product().click();
 			Log.info("Product icon is clicked");
-			//ProductDetails_Page.Product.Product_CODBtn().click();
-			//Log.info("Check for COD button is clicked");
-			ProductDetails_Page.Product.PinCode().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.postCode));
-			Log.info("Pin is entered into the text field");
-			ProductDetails_Page.Product.PinCodeCheckBtn().click();
-			Log.info("Check button is clicked");
-
-			if (ProductDetails_Page.Product.PinCodeSuccessMsg().size() >= 1) {
-				Log.info("Product can be deliver to this pincode");
-				Utils.captureScreenshot(sTestCaseName, "Pass", "Passed");
-			} else {
-				Log.error("Product cannot be deliver to this Pincode");
-				throw (new Exception("Product cannot be deliver to this Pincode"));
-			}
+			PDP_Action.PDP__Size_Msg_Functionality();
+			Log.info("Product details verified successfully");
+			ExcelUtils.setCellData("Pass", iTestCaseRow, Constant.result);
+			Utils.captureScreenshot(sTestCaseName, "Pass", "Passed");
 
 		} catch (Exception e) {
-			Log.error("Issue in COD checking functionality");
+			Log.error("Issue in verifying product details on PDP");
 			ExcelUtils.setCellData("Fail", iTestCaseRow, Constant.result);
 			Utils.captureScreenshot(sTestCaseName, "Fail", "Failed");
 			Log.error(e.getMessage());

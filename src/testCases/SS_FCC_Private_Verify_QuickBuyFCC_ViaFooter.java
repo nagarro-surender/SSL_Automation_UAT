@@ -17,6 +17,7 @@ import pageObjects.Home_Page;
 import pageObjects.MiniCart_Page;
 import appModules.CheckOut_Action;
 import appModules.FCC_Action;
+import appModules.HomePage_Action;
 import appModules.Login_App;
 import utility.Constant;
 import utility.ExcelUtils;
@@ -91,7 +92,9 @@ public class SS_FCC_Private_Verify_QuickBuyFCC_ViaFooter {
 		try {
 		
 		Login_App.execute(iTestCaseRow);
-		Log.info("Log in successfull for Registered User");		
+		Log.info("Log in successfull for Registered User");	
+		
+		HomePage_Action.removeAllItemFromCart();
 
 		Home_Page.Footer_Section.First_Citizen().click();
 		Log.info("FCC linked clicked from footer section successfully");
@@ -99,8 +102,8 @@ public class SS_FCC_Private_Verify_QuickBuyFCC_ViaFooter {
 		FCC_Action.FCC_Verify_QuickBuyFCC_ViaFooterLink(iTestCaseRow);
 		Log.info("FCC added to cart successfully");
 		
-		//Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
-		//Log.info("User successfully reached to Checkout page");
+		Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
+		Log.info("User successfully reached to Checkout page");
 
 		CheckOut_Action.ProceedwithNewAddress(iTestCaseRow);
 		Utils.verifyElement(Checkout_Page.Paymentinfo.PaymentClass());
@@ -112,11 +115,11 @@ public class SS_FCC_Private_Verify_QuickBuyFCC_ViaFooter {
         
 		//CheckOut_Action.PaymentOption(iTestCaseRow);
 		
-		Home_Page.headerSoppersStopLogocheckout().click();
-		Thread.sleep(2000);
-		Home_Page.headerMiniCartIcon().click();
-		Thread.sleep(2000);
-        Home_Page.headerMiniCartIconclose().click();
+//		Home_Page.headerSoppersStopLogocheckout().click();
+//		Thread.sleep(2000);
+//		Home_Page.headerMiniCartIcon().click();
+//		Thread.sleep(2000);
+//        Home_Page.headerMiniCartIconclose().click();
 		
 		//CheckOut_Action.PaymentOption(iTestCaseRow);
 		

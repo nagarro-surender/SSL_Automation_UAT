@@ -61,7 +61,7 @@ public class SS_PDP_PersistentProduct {
 			HomePage_Action.selectProductCategoryfromMenu(iTestCaseRow);
 			ProductListing_Page.product().click();
 			Log.info("Product icon is clicked");
-			Utils.verifyElement(ProductDetails_Page.Product.productPicture());
+			//Utils.verifyElement(ProductDetails_Page.Product.productPicture());
 			Utils.mouseHover(Home_Page.Footer_Section.Help_FAQ());
 
 			if (ProductDetails_Page.PersistenceProduct.persistentHeader().isDisplayed()) {

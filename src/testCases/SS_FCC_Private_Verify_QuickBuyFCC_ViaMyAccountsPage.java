@@ -15,6 +15,7 @@ import pageObjects.Checkout_Page;
 import pageObjects.Home_Page;
 import appModules.CheckOut_Action;
 import appModules.FCC_Action;
+import appModules.HomePage_Action;
 import appModules.Login_App;
 import utility.Constant;
 import utility.ExcelUtils;
@@ -89,6 +90,7 @@ public class SS_FCC_Private_Verify_QuickBuyFCC_ViaMyAccountsPage {
 		
 		Login_App.execute(iTestCaseRow);
 		Log.info("Log in successfull for Registered User");		
+		HomePage_Action.removeAllItemFromCart();
 		
 		Utils.mouseHover(Home_Page.LoginRegister());
 		Home_Page.MyAccount().click();
@@ -97,8 +99,8 @@ public class SS_FCC_Private_Verify_QuickBuyFCC_ViaMyAccountsPage {
 		FCC_Action.FCC_Verify_QuickBuyFCC_ViaMyAccountPage(iTestCaseRow);		
 		Log.info("FCC added to cart successfully");
 		
-		//Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
-		//Log.info("User successfully reached to Checkout page");
+		Utils.verifyElement(Checkout_Page.TopNavigation.CheckOutText());
+		Log.info("User successfully reached to Checkout page");
 
 		CheckOut_Action.ProceedwithNewAddress(iTestCaseRow);
 		Utils.verifyElement(Checkout_Page.Paymentinfo.PaymentClass());
@@ -106,11 +108,11 @@ public class SS_FCC_Private_Verify_QuickBuyFCC_ViaMyAccountsPage {
 		
 		//CheckOut_Action.PaymentOption(iTestCaseRow);
 		
-		Home_Page.headerSoppersStopLogocheckout().click();
-		Thread.sleep(2000);
-		Home_Page.headerMiniCartIcon().click();
-		Thread.sleep(2000);
-        Home_Page.headerMiniCartIconclose().click();
+//		Home_Page.headerSoppersStopLogocheckout().click();
+//		Thread.sleep(2000);
+//		Home_Page.headerMiniCartIcon().click();
+//		Thread.sleep(2000);
+//        Home_Page.headerMiniCartIconclose().click();
 		
 		if(BaseClass.bResult==true){
 			Log.info("Verification for buying FCC for registere user from My accounts page successfull");
@@ -128,7 +130,6 @@ public class SS_FCC_Private_Verify_QuickBuyFCC_ViaMyAccountsPage {
 			throw (e);
 		}
 	}
-
 
 	@AfterMethod
 	public void afterMethod() {

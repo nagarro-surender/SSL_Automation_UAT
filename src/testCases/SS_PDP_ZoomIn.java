@@ -59,10 +59,13 @@ public class SS_PDP_ZoomIn {
 			HomePage_Action.selectProductCategoryfromMenu(iTestCaseRow);
 			ProductListing_Page.product().click();
 			Log.info("Product icon is clicked");
-			ProductDetails_Page.Product.ZoomBtn().click();
-			Log.info("Zoom In button is clicked to enlarge product");
+			ProductDetails_Page.Product.PDPImage().click();
+			//ProductDetails_Page.Product.ZoomBtn().click();
+			Log.info("Image on PDP is clicked to enlarge product");
 
-			if (ProductDetails_Page.Product.ZoomInWindowDiv().isDisplayed()) {
+			if (ProductDetails_Page.Product.ZoomInWindowDiv().isDisplayed())
+				if (ProductDetails_Page.Product.ZoomInWindowDiv().isDisplayed())	
+			{
 				Log.info("Zoom In pop up window is displayed");
 
 			} else {

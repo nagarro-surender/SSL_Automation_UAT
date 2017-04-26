@@ -67,19 +67,21 @@ public class SS_PDP_Verify_AddToWishList_RegisteredUser {
 			Login_App.execute(iTestCaseRow);
 			HomePage_Action.selectProductCategoryfromMenu(iTestCaseRow);
 			//ProductListing_Page.product().click();
-			Log.info("Product icon is clicked");
+			//Log.info("Product icon is clicked");
 			
 			int wishListItem = Integer.parseInt(Home_Page.headerWishlistItemCountIcon().getText());
-			Utils.mouseHover(ProductListing_Page.FirstProductImage());
+			System.out.println(Integer.parseInt(Home_Page.headerWishlistItemCountIcon().getText()));
+			//Utils.mouseHover(ProductListing_Page.FirstProductImage());
 			Log.info("Mouse hovered over first product image");
-			ProductListing_Page.FirstProductImage().click();
-			//ProductListing_Page.ProductQuickViewTag().click();
+			//ProductListing_Page.FirstProductImage().click();
+			Utils.mouseHover(ProductListing_Page.product());
+			ProductListing_Page.ProductQuickViewTag().click();
 			Log.info("First Item clicked on PLP");
-			//if (ProductDetails_Page.Product.AddToWishlistElementList().size() > 0) {
-				//Log.info("Add to Wishlist button is present for registered user");
-			//} else {
-				//throw new Exception("Add to Wishlist button is not present for registered user");
-			//}
+			if (ProductDetails_Page.Product.AddToWishlistElementList().size() > 0) {
+				Log.info("Add to Wishlist button is present for registered user");
+			} else {
+				throw new Exception("Add to Wishlist button is not present for registered user");
+			}
 
 			//Utils.mouseHover(ProductListing_Page.FirstProductImage());
 			//Log.info("Mouse hovered over first product image");
@@ -93,11 +95,14 @@ public class SS_PDP_Verify_AddToWishList_RegisteredUser {
 
 			Utils.mouseHover(ProductDetails_Page.Product.AddToWishlistBtn());
 			ProductDetails_Page.Product.AddToWishlistBtn().sendKeys(Keys.ENTER);
-			//if (Integer.parseInt(Home_Page.headerWishlistItemCountIcon().getText()) == (wishListItem + 1)) {
+			Thread.sleep(3000);
+			System.out.println(Integer.parseInt(Home_Page.headerWishlistItemCountIcon().getText()));
+			System.out.println(wishListItem + 1);
+			if (Integer.parseInt(Home_Page.headerWishlistItemCountIcon().getText()) == (wishListItem + 1)) {
 				Log.info("Product added to the wishlist successfully");
-			//} else {
-				//throw (new Exception("Product not added to the wishlist"));
-			
+			} else {
+				throw (new Exception("Product not added to the wishlist"));
+			}
 			Thread.sleep(5000);
 			Utils.verifyElement(Home_Page.headerWishlistIcon());
 			Home_Page.headerWishlistIcon().click();

@@ -65,7 +65,10 @@ public class SS_Footer_CustomerRelated_Verify_All_Links_Are_Clickable {
 	public void main() throws Exception {
 		try {
 			Log.info("Verification check has been completed for FooterLinks related to Customer- Public View started");
+			
+			HomePage_Action.FooterLinkVerification_AppDownload_Public(iTestCaseRow);
 			HomePage_Action.FooterLinkVerification_Customer_Public(iTestCaseRow);
+			
 
 			if (BaseClass.bResult == true) {
 

@@ -60,7 +60,8 @@ public class SS_PDP_ZoomIn_AddToCart {
 			HomePage_Action.selectProductCategoryfromMenu(iTestCaseRow);
 			ProductListing_Page.product().click();
 			Log.info("Product icon is clicked");
-			ProductDetails_Page.Product.ZoomBtn().click();
+			//ProductDetails_Page.Product.ZoomBtn().click();
+			ProductDetails_Page.Product.PDPImage().click();
 			Log.info("Zoom In button is clicked to enlarge product");
 			
 			if (ProductDetails_Page.Product.ZoomInWindowDiv().isDisplayed()) {

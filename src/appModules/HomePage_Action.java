@@ -3,6 +3,7 @@ package appModules;
 import java.util.List;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -277,22 +278,26 @@ public class HomePage_Action {
 		try {
 			
 			Log.info("Verification for NewsLetter Subscribe Email Functionality for Empty field");
-			Utils.mouseHover(Home_Page.NewsLetterButton());
+			//Utils.scrollingToPageElementAdvanced(Home_Page.StartSoemthingnew());
+			//Utils.mouseHover(Home_Page.NewsLetterButton());
 			Home_Page.NewsLetterButton().sendKeys(Keys.ENTER);
+			System.out.println(Home_Page.NewsLetterAlert().getText());
 			Utils.performAssertEquals(Home_Page.NewsLetterAlert(),
 					ExcelUtils.getCellData(iTestCaseRow, Constant.message1));
 		} catch (Exception e) {
 			Log.error("Verification check Failed for NewsLetter Subscribe Email Field for Empty field");
 			BaseClass.errorValidation += "Newsletter subscribe button not clicked on Home Page\n";
 		}
+		Thread.sleep(3000);
 		try {
 			Log.info("Verification for NewsLetter Subscribe Email Functionality for invalid mail address");
 			Home_Page.NewsletterEmail().clear();
 			Home_Page.NewsletterEmail().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.invalidEmailId));
 			//Thread.sleep(10000);
 			//Utils.scrollingToPageElementByCordinate(1275, 5500);
-			Utils.mouseHover(Home_Page.NewsLetterButton());
-			Home_Page.NewsLetterButton().sendKeys(Keys.ENTER);
+			//Utils.mouseHover(Home_Page.NewsLetterButton());
+			Home_Page.NewsLetterButton().click();
+			System.out.println(Home_Page.NewsLetterAlert().getText());
 			Utils.performAssertEquals(Home_Page.NewsLetterAlert(),
 					ExcelUtils.getCellData(iTestCaseRow, Constant.message2));
 		} catch (Exception e) {
@@ -302,12 +307,15 @@ public class HomePage_Action {
 		
 
 		}
+		Thread.sleep(3000);
 		try {
 			Log.info("Verification for NewsLetter Subscribe Email Functionality for Valid email address");
 			Home_Page.NewsletterEmail().clear();
 			Home_Page.NewsletterEmail().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.emailId));
-			Utils.mouseHover(Home_Page.NewsLetterButton());
-			Home_Page.NewsLetterButton().sendKeys(Keys.ENTER);
+			//Utils.mouseHover(Home_Page.NewsLetterButton());
+			Home_Page.NewsLetterButton().click();
+			//System.out.println(Home_Page.NewsLetterAlert());
+			System.out.println(Home_Page.NewsLetterAlert().getText());
 			Utils.performAssertEquals(Home_Page.NewsLetterAlert(),
 					ExcelUtils.getCellData(iTestCaseRow, Constant.message3));
 		} catch (Exception e) {
@@ -379,6 +387,27 @@ public class HomePage_Action {
 		}
 	}
 
+	
+	public static void removeAllItemFromCart() throws Exception{
+        String cartCount="0";
+        
+        if(cartCount.equals(Home_Page.MiniCartItemCount().getText())){
+           return;  
+           //break;
+        }
+        else{
+              
+        	Home_Page.headerMiniCartIcon().click();         
+              List<WebElement> list=Home_Page.MiniCartItems();
+              int size=list.size();
+              for(int i=1;i<=size;i++){
+                          Home_Page.MiniCartItemRemove().click();
+                    }
+              
+              }
+              Home_Page.headerSoppersStopLogo().click();
+
+        }
 	public static void Header_Public_Verify_TrackOrder_Page_Functionality(int iTestCaseRow) throws Exception {
 		try {
 			Log.info("Verification for Track Order icon page functionality in Header");
@@ -767,6 +796,77 @@ public class HomePage_Action {
 			throw (e);
 
 		}
+
+		if (!BaseClass.errorValidation.isEmpty()) {
+			Log.error("Exception in Class Home_Page_Action | Method FooterLinkVerification_FirstCitizen_Public");
+			Log.error("Verification check Failed for Footer Links related to First Citizen - Public View");
+
+			throw new Exception(BaseClass.errorValidation);
+		}
+	}
+	
+	public static void FooterLinkVerification_AppDownload_Public(int iTestCaseRow) throws Exception {
+		try {
+			Utils.verifyElement(Home_Page.Footer_Section.AppStoreLink());
+
+			Log.info("Verification check has been completed for Footer App downloads Links");
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page_Action | Method FooterLinkVerification_AppDownload_Public");
+			Log.error("Verification check Failed for Footer App downloads Links");
+
+			throw (e);
+
+		}
+		
+		try {
+			Utils.verifyElement(Home_Page.Footer_Section.GooglePlayLink());
+
+			Log.info("Verification check has been completed for Footer Google Play App downloads Links");
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page_Action | Method Footer_Section.GooglePlayLink");
+			Log.error("Verification check Failed for Footer Google Play App downloads Links");
+
+			throw (e);
+
+		}
+		
+		try {
+			Utils.verifyElement(Home_Page.Footer_Section.ProductAuthenticIcon());
+
+			Log.info("Verification check has been completed for Footer Product AuthenticIcon Links");
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page_Action | Method Footer_Section.ProductAuthenticIcon");
+			Log.error("Verification check Failed for Footer Product AuthenticIcon Links");
+
+			throw (e);
+
+		}
+		
+		try {
+			Utils.verifyElement(Home_Page.Footer_Section.FreeDeliveryicon());
+
+			Log.info("Verification check has been completed for Footer Free Delivery Link");
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page_Action | Method FreeDeliveryicon");
+			Log.error("Verification check Failed for Footer Free Delivery Link");
+
+			throw (e);
+
+		}
+		
+		try {
+			Utils.verifyElement(Home_Page.Footer_Section.EasyExchangeReturnIcon());
+
+			Log.info("Verification check has been completed for Footer Easy Exchange and Return Link");
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page_Action | Method EasyExchangeReturnIcon");
+			Log.error("Verification check Failed for Footer Easy Exchange and Return Link");
+
+			throw (e);
+
+		}
+		
+	
 
 		if (!BaseClass.errorValidation.isEmpty()) {
 			Log.error("Exception in Class Home_Page_Action | Method FooterLinkVerification_FirstCitizen_Public");
