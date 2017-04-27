@@ -740,6 +740,70 @@ public class Home_Page extends BaseClass {
 			return element;
 		}
 		
+		public static WebElement Brand_Link() throws Exception {
+			try {
+				Log.info("Locating Brand_Link element");
+				element = Driver.findElement(By.xpath("//*[contains(@title,'BRANDS')]"));
+				Log.info("Brand Link found ");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method Brand_Link");
+				Log.error("Brand Link not found");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		public static WebElement Gifts_Link() throws Exception {
+			try {
+				Log.info("Locating Gifts_Link element");
+				element = Driver.findElement(By.xpath("  //*[contains(@title,'GIFTS')]"));
+				Log.info("Gifts Link found ");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method Gifts_Link");
+				Log.error("Gifts Link not found");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		
+		public static WebElement Discover_Link() throws Exception {
+			try {
+				Log.info("Locating Discover_Link element");
+				element = Driver.findElement(By.xpath("//*[contains(@title,'DISCOVER')]"));
+				Log.info("Discover Link found ");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method Discover_Link");
+				Log.error("Discover Link not found");
+
+				throw (e);
+
+			}
+			return element;
+		}
+		
+		public static WebElement Offers_Link() throws Exception {
+			try {
+				Log.info("Locating Offers_Link element");
+				element = Driver.findElement(By.xpath("  //*[contains(@title,'OFFERS')]"));
+				Log.info("Offers Link found ");
+
+			} catch (Exception e) {
+				Log.error("Exception in Class Home_Page | Method Offers_Link");
+				Log.error("Offers Link not found");
+
+				throw (e);
+
+			}
+			return element;
+		}
 		public static WebElement FreeDeliveryicon() throws Exception {
 			try {
 				Log.info("Locating Free delivery Link element");

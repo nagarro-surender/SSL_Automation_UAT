@@ -24,8 +24,10 @@ public class Cart_Page extends BaseClass {
 
 		try {
 			Log.info("Locating ContinueShoppingButton element");
+//			element = Driver.findElement(By.xpath(
+//					"//section[@class='shopping-bag-wpr']//div[@class='continue-shopping-btn hidden-xs hidden-sm']//button[@class='btn-continue-shop']"));
 			element = Driver.findElement(By.xpath(
-					"//section[@class='shopping-bag-wpr']//div[@class='continue-shopping-btn hidden-xs hidden-sm']//button[@class='btn-continue-shop']"));
+					"//section[@class='shopping-bag-wpr']//div[@class='continue-shopping-btn hidden-xs hidden-sm']"));
 
 			Log.info("Continue Shopping Button exist on the cart page");
 
@@ -519,11 +521,10 @@ public class Cart_Page extends BaseClass {
 
 		try {
 			Log.info("Locating Move to wishlist button elements on the cart page");
-			//elements = Driver.findElements(By.xpath(
-					//"//section[@class='shopping-bag-wpr']//ul[@class='shop-listing']//div[@class='product-actions']//div[@class='wishlist-acn']/a"));
-			
+	//		elements = Driver.findElements(By.xpath(
+	//				"//section[@class='shopping-bag-wpr']//ul[@class='shop-listing']//div[@class='product-actions']//div[@class='wishlist-acn']/a"));
 			elements = Driver.findElements(By.xpath(
-					"//section[@class='shopping-bag-wpr']//ul[@class='shop-listing']//div[@class='wishlist-acn wishlist-remove-section clearfix']//*[@class='add-to-wishlist']"));
+					" //section[@class='shopping-bag-wpr']//ul[@class='shop-listing']//*[@class='add-to-wishlist']"));
 
 			Log.info("Move to wishlist button elements exist on the cart page");
 

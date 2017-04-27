@@ -314,14 +314,14 @@ public class Cart_Action {
 			Log.error(e.getMessage());
 			throw e;
 		}
-		try {
+/*		try {
 			if (!(Cart_Page.EditCartLink().size() > 0)) {
 				BaseClass.errorValidation += "Edit cart link does not exist on the cart page \n";
 			}
 		} catch (Exception e) {
 			Log.error(e.getMessage());
 			throw e;
-		}
+		}*/
 		try {
 			if (!(Cart_Page.MoveToWishlist().size() > 0)) {
 				BaseClass.errorValidation += "Move To Wishlist icon does not exist on the cart page \n";
@@ -548,8 +548,8 @@ public class Cart_Action {
 		String productQuantity = "";
 		try {
 			productQuantity = Cart_Page.UpdateQuantity().get(0).getAttribute("value");
-			Cart_Page.EditCartLink().get(0).click();
-			Log.info("Edit cart link clicked successfully");
+			//Cart_Page.EditCartLink().get(0).click();
+			//Log.info("Edit cart link clicked successfully");
 			Thread.sleep(5000);
 			Cart_Page.IncreaseQuantity().get(0).click();
 			Log.info("Increase quantity link clicked successfully");
