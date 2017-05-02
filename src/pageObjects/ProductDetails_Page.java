@@ -478,7 +478,8 @@ public class ProductDetails_Page extends BaseClass {
 
 			try {
 				Log.info("Locating Size Alert element");
-				element = Driver.findElement(By.xpath(" //section[@class='product_details_main']//*[@class='addtocart-component clearfix pdpbtn']/p"));
+            element = Driver.findElement(By.xpath(" //section[@class='product_details_main']//*[@class='addtocart-component clearfix pdpbtn']/p"));
+
 
 				Log.info("Size Alert element is found on PDP");
 

@@ -65,6 +65,7 @@ public class SS_Header_Public_Verify_SearchBox_Field_Functionality {
 
 			Utils.waitForLoad("firefox");
 			HomePage_Action.Header_Public_Verify_SearchBox_Field(iTestCaseRow);
+			HomePage_Action.Header_Public_Verify_SearchBox_Field_functionality(iTestCaseRow);
 
 			if (BaseClass.bResult == true) {
 

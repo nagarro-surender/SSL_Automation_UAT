@@ -8,7 +8,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import pageObjects.BaseClass;
+import pageObjects.Cart_Page;
 import pageObjects.Home_Page;
+import pageObjects.MyAccount_Page;
 import pageObjects.Static_Page;
 import utility.Constant;
 import utility.ExcelUtils;
@@ -521,8 +523,9 @@ public class HomePage_Action {
 	public static void Header_Private_Verify_Wishlist_Functionality(int iTestCaseRow) throws Exception {
 		try {
 			Log.info("Verification for Wishlist icon functionality in Header");
-			Utils.mouseHover(Home_Page.headerWishlistIcon());
-			Log.info("Wishlist icon hovered successfully");
+			//Utils.mouseHover(Home_Page.headerWishlistIcon());
+			Home_Page.headerWishlistIcon().click();
+			Log.info("Wishlist icon click successfully");
 			if (Home_Page.headerWishlistUserMenu().size() > 0) {
 				Log.info("Verification check done for User specific Wishlist ");
 			} else {
@@ -602,6 +605,16 @@ public class HomePage_Action {
 	
 			Utils.verifyElement(Home_Page.headerMiniCartIcon());
 			Log.info("Verification check has been completed for Header Minicart Icon");
+			Utils.verifyElement(Home_Page.headerStoreLocatorIcon());
+			Log.info("Verification check has been completed for HeaderStoreLocator Icon");
+			Utils.verifyElement(Home_Page.Shipping_Icon());
+			Log.info("Verification check has been completed for Header Shipping Icon");
+			Utils.verifyElement(Home_Page.Footer_Section.Exchange_Returns());
+			Log.info("Verification check has been completed for Header Return and Exchange Icon");
+			Utils.verifyElement(Home_Page.ContactUs_Icon());
+			Log.info("Verification check has been completed for Header ContactUs Icon");
+			Utils.verifyElement(Home_Page.ContactUs_Icon());
+			Log.info("Verification check has been completed for Header ContactUs Icon");
 
 			Log.info("Verification for Mini Cart icon functionality in Header");
 			Home_Page.headerMiniCartIcon().click();
@@ -657,6 +670,68 @@ public class HomePage_Action {
 		}
 		if (!BaseClass.errorValidation.isEmpty()) {
 			Log.error("Exception in Class HomePage_Action | Method Header_Public_Verify_SearchBox_Functionality");
+			Log.error("Verification check Failed for Header Search box field functionality");
+			throw new Exception(BaseClass.errorValidation);
+		}
+
+	}
+	
+	public static void Header_Public_Verify_SearchBox_Field_functionality(int iTestCaseRow) throws Exception {
+		
+		try {
+			Log.info("Verification for Header Search box field functionality");
+			Home_Page.Search_Box().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.searchField));
+			Log.info("Product name entered in search box");
+			Thread.sleep(3000);
+			
+			try {
+				if (!(Home_Page.MaroonText().getAttribute("class").contains("autosuggestion"))) {
+					BaseClass.errorValidation += "Text not present in maroon color on page. \n";
+				}
+			} catch (Exception e) {
+				Log.error("Exception in Class Cart_Action | Method Header_Public_Verify_SearchBox_Field_functionality");
+				Log.error(e.getMessage());
+				throw e;
+			}
+			
+			try {
+				if (!(Home_Page.BoldText().getAttribute("class").contains("autosuggestion"))) {
+					BaseClass.errorValidation += "Text not present in Bold on page. \n";
+				}
+			} catch (Exception e) {
+				Log.error("Exception in Class Cart_Action | Method Header_Public_Verify_SearchBox_Field_functionality");
+				Log.error(e.getMessage());
+				throw e;
+			}
+			Home_Page.Search_Box().clear();
+			Thread.sleep(2000);
+			Home_Page.Search_Box().sendKeys(ExcelUtils.getCellData(iTestCaseRow, Constant.description));
+			Log.info("Product name entered in search box");
+			Thread.sleep(2000);
+			
+			try {
+				 if (Home_Page.BoldText().isDisplayed()) {
+					BaseClass.errorValidation += "Text on page which should not be. \n";
+				}
+					
+				} catch (Exception e) {
+
+				Log.error(e.getMessage());
+				BaseClass.errorValidation += "Retrun/Exchange window is not present on cart page\n";
+			}
+			//Log.info("Search button clicked successfully");
+			//Utils.waitForLoad("firefox");
+			//Utils.verifyElement(Home_Page.productListHeading());
+			//Log.info("Verification check has been completed for Header Search box field functionality");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page_Action | Method Header_Public_Verify_SearchBox_Field_functionality");
+			Log.error("Verification check Failed for Header Search box field functionality");
+			throw (e);
+
+		}
+		if (!BaseClass.errorValidation.isEmpty()) {
+			Log.error("Exception in Class HomePage_Action | Method Header_Public_Verify_SearchBox_Field_functionality");
 			Log.error("Verification check Failed for Header Search box field functionality");
 			throw new Exception(BaseClass.errorValidation);
 		}

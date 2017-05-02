@@ -272,10 +272,11 @@ public class PDP_Action {
 	
 	public static void PDP__Size_Msg_Functionality() throws Exception {
 
+		
 		PDP_Action.product_selectSize(ProductDetails_Page.Product.size_variant_buttonlist());
-		System.out.println(ProductDetails_Page.Product.SizeAlert().getAttribute("content"));
-		System.out.println(ProductDetails_Page.Product.SizeAlert().getText());
-		System.out.println(ProductDetails_Page.Product.SizeAlert().getAttribute("title"));
+		String text= ProductDetails_Page.Product.SizeAlert().getAttribute("value");
+		System.out.println(text);
+
 		try {
 			//Utils.verifyElement(ProductDetails_Page.Product.SizeAlert());
 			if (!(ProductDetails_Page.Product.SizeAlert().getText().contains("Only"))) {

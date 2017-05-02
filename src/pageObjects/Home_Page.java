@@ -234,6 +234,63 @@ public class Home_Page extends BaseClass {
 
 	}
 
+	
+	public static WebElement Shipping_Icon() throws Exception {
+
+		try {
+			Log.info("Locating Shipping_Icon element");
+			element = Driver.findElement(By.xpath("//*[@class='shipping']"));
+
+			Log.info("Shipping icon Link found under Footer Section");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method Shipping_Icon");
+			Log.error("Shipping Icon is not found under  Footer Section");
+
+			throw (e);
+
+		}
+		return element;
+
+	}
+	
+	public static WebElement ContactUs_Icon() throws Exception {
+
+		try {
+			Log.info("Locating ContactUs_Icon element");
+			element = Driver.findElement(By.xpath("//*[@class='contactus']"));
+
+			Log.info("ContactUs_Icon Link found under Header Section");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method ContactUs_Icon");
+			Log.error("ContactUs_Icon is not found under  header Section");
+
+			throw (e);
+
+		}
+		return element;
+
+	}
+	
+	public static WebElement Track_Order() throws Exception {
+
+		try {
+			Log.info("Locating Track_Order element");
+			element = Driver.findElement(By.xpath("//*[@class='trackorder']"));
+
+			Log.info("Track Order Link found under Header Section");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method Track_Order");
+			Log.error("Track order link is not found under Header Section");
+
+			throw (e);
+
+		}
+		return element;
+
+	}
 	public static class Footer_Section {
 
 		static WebElement element;
@@ -430,6 +487,8 @@ public class Home_Page extends BaseClass {
 
 		}
 
+
+		
 		public static WebElement Shipping_Policy() throws Exception {
 
 			try {
@@ -857,6 +916,42 @@ public class Home_Page extends BaseClass {
 		return element;
 
 	}
+	
+	public static WebElement MaroonText() throws Exception {
+
+		try {
+			Log.info("Locating Maroon Text element");
+			element = Driver.findElement(By.xpath("//*[@class='search-mobile-wrap']//*[@class='results_list']//li[1]//*[@class='autosuggestion_highlight_new_category']"));
+
+			Log.info("Maroon is found on the Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method MaroonText");
+			Log.error("Maroon is not found on the home page");
+			throw e;
+		}
+
+		return element;
+
+	}
+	
+	public static WebElement BoldText() throws Exception {
+
+		try {
+			Log.info("Locating Maroon Text element");
+			element = Driver.findElement(By.xpath("//*[@class='search-mobile-wrap']//*[@class='results_list']//li[1]//*[@class='autosuggestion_highlight_new']"));
+
+			Log.info("Maroon is found on the Home Page");
+
+		} catch (Exception e) {
+			Log.error("Exception in Class Home_Page | Method MaroonText");
+			Log.error("Maroon is not found on the home page");
+			throw e;
+		}
+
+		return element;
+
+	}
 
 	public static WebElement Search_Btn() throws Exception {
 
@@ -1027,7 +1122,8 @@ public class Home_Page extends BaseClass {
 
 		try {
 			Log.info("Locating headerWishlistIcon element");
-			element = Driver.findElement(By.xpath("html/body/main/header/div/div/div/div[5]/ul/li[3]/a"));
+			//element = Driver.findElement(By.xpath("html/body/main/header/div/div/div/div[5]/ul/li[3]/a"));
+			element = Driver.findElement(By.xpath("//*[@class='wishlist']"));
 
 			Log.info("Notification icon is found on the Header on Home Page");
 
@@ -1199,8 +1295,8 @@ public class Home_Page extends BaseClass {
 	public static List<WebElement> headerWishlistUserMenu()throws Exception {
 		try {
 			Log.info("Locating headerWishlistUserMenu elements");
-			webElements = Driver.findElements(By.xpath(".//*[@id='wish-scroller']/ul/li"));
-
+			//webElements = Driver.findElements(By.xpath(".//*[@id='wish-scroller']/ul/li"));
+			webElements = Driver.findElements(By.xpath(".//*[@id='primaryImage']"));
 			Log.info("Wishlist user menu is found on Home Page");
 
 		} catch (Exception e) {
